@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutoria Python Intermediário • 8 semanas + bônus web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --main-bg: #fdf6e3;
+      --main-blue: #1e3a8a;
+      --main-red: #e74c3c;
+      --card-bg: #ffffff;
+      --ink: #0b0b0b;
+    }
+    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+    .btn-primary { background: var(--main-red); color: #fff; border-radius: 9999px; padding: 0.875rem 1.25rem; font-weight: 700; }
+    .btn-primary:hover { opacity: .95; transform: translateY(-1px); }
+    .btn-outline { border: 2px solid var(--main-red); color: var(--main-red); border-radius: 9999px; padding: 0.75rem 1.1rem; font-weight: 700; }
+    .chip { background: #fff; border: 1px solid var(--main-red); border-radius: 9999px; padding: .4rem .8rem; font-weight: 600; color: var(--main-red); }
+    .tag { background: var(--main-red); color: #fff; padding: .25rem .6rem; border-radius: .5rem; font-weight: 700; font-size: .75rem; }
+    .check::before { content: "✔"; margin-right: .6rem; color: var(--main-red); font-weight: 900; }
+    .x::before { content: "✖"; margin-right: .6rem; color: var(--main-red); font-weight: 900; }
+    h1, h2, h3 { color: var(--main-blue); }
+    strong, b { color: var(--main-red); }
+  </style>
+</head>
+<body class="bg-[var(--main-bg)] text-[var(--ink)]">
+  <!-- Header (única linha vermelha de separação) -->
+  <header class="sticky top-0 z-40 bg-[var(--main-bg)]/80 backdrop-blur border-b-4 border-[var(--main-red)]">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#hero" class="font-extrabold text-xl text-[var(--main-red)]">Python Intermediário</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <a href="#programa" class="hover:text-[var(--main-red)]">Programa</a>
+        <a href="#projeto" class="hover:text-[var(--main-red)]">Projeto</a>
+        <a href="#preco" class="hover:text-[var(--main-red)]">Investimento</a>
+        <a href="#faq" class="hover:text-[var(--main-red)]">FAQ</a>
+        <button id="ctaHeader" class="btn-primary" onclick="openGoogleForm()">Pré‑inscrição</button>
+      </nav>
+      <button class="md:hidden btn-outline" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">Menu</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-3">
+        <a href="#programa" class="font-semibold">Programa</a>
+        <a href="#projeto" class="font-semibold">Projeto</a>
+        <a href="#preco" class="font-semibold">Investimento</a>
+        <a href="#faq" class="font-semibold">FAQ</a>
+        <button class="btn-primary w-fit" onclick="openGoogleForm()">Pré‑inscrição</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="tag">Nova turma • 8 semanas + bônus gravado</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-3 leading-tight">
+          Tutoria de <span class="text-[var(--main-red)]">Python Intermediário</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-black/80">
+          Crie sua primeira aplicação real em Python: <b>GUI moderna</b>, <b>automação de tarefas</b>, integração com APIs e empacotamento profissional. <b>Bônus:</b> leve o mesmo projeto para a web com Flask.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="chip">8 semanas</span>
+          <span class="chip">1 projeto do início ao fim</span>
+          <span class="chip">Bônus web gravado</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <button id="openModalCta" class="btn-primary" onclick="openGoogleForm()">Pré‑inscrição</button>
+          <a href="#programa" class="btn-outline">Ver programa do curso</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="bg-white rounded-3xl shadow-xl p-6 border-2 border-[var(--main-red)]">
+          <h3 class="text-xl font-extrabold text-[var(--main-red)]">O que você vai conquistar</h3>
+          <ul class="mt-4 space-y-2">
+            <li class="check">Estruturar projetos profissionais</li>
+            <li class="check">Criar interfaces gráficas com Tkinter / CustomTkinter</li>
+            <li class="check">Automatizar rotinas e gerar relatórios</li>
+            <li class="check">Integrar APIs (HTTP/JSON) ao seu app</li>
+            <li class="check">Testar, documentar e empacotar em executável</li>
+          </ul>
+          <div class="mt-5 text-sm text-black/70">Pré‑requisito: fundamentos do Python (variáveis, condicionais, laços, funções, listas/dicionários).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que funciona -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-14 grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl border border-[var(--main-red)]/40 shadow-sm">
+        <h3 class="font-extrabold text-lg">Trilha guiada</h3>
+        <p class="mt-2 text-black/70">Do projeto vazio ao app final, com passos claros e sem enrolação.</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-[var(--main-red)]/40 shadow-sm">
+        <h3 class="font-extrabold text-lg">Projeto único</h3>
+        <p class="mt-2 text-black/70">Um único gerenciador de tarefas que evolui a cada semana (aprendizado profundo).</p>
+      </div>
+      <div class="p-6 rounded-2xl border border-[var(--main-red)]/40 shadow-sm">
+        <h3 class="font-extrabold text-lg">Feedback real</h3>
+        <p class="mt-2 text-black/70">Orientação prática no código, arquitetura e organização do projeto.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programa -->
+  <section id="programa">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Programa em 8 semanas</h2>
+        <a href="#preco" class="btn-primary">Garantir minha vaga</a>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <!-- Semana 1 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 1</span>
+          <h3 class="mt-2 font-extrabold text-lg">Estrutura de projeto profissional</h3>
+          <p class="mt-2 text-black/70">Módulos, pacotes, imports, virtualenv, Git. </p>
+          <p class="mt-2 font-semibold">Entregável: estrutura base do app (core/, data/, ui/, main.py).</p>
+        </div>
+        <!-- Semana 2 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 2</span>
+          <h3 class="mt-2 font-extrabold text-lg">Persistência de dados</h3>
+          <p class="mt-2 text-black/70">JSON/CSV e introdução a SQLite; CRUD de tarefas.</p>
+          <p class="mt-2 font-semibold">Entregável: adicionar, listar, concluir e remover tarefas.</p>
+        </div>
+        <!-- Semana 3 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 3</span>
+          <h3 class="mt-2 font-extrabold text-lg">Automação de tarefas</h3>
+          <p class="mt-2 text-black/70">Arquivos/pastas (os/pathlib), planilhas (openpyxl), e‑mail, agendamento.</p>
+          <p class="mt-2 font-semibold">Entregável: relatório semanal + envio automático por e‑mail.</p>
+        </div>
+        <!-- Semana 4 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 4</span>
+          <h3 class="mt-2 font-extrabold text-lg">Teoria + GUI básica (Tkinter)</h3>
+          <p class="mt-2 text-black/70">Tipos de aplicação (CLI/GUI/Web), janelas, eventos, widgets e layouts.</p>
+          <p class="mt-2 font-semibold">Entregável: formulário + lista de tarefas funcionando.</p>
+        </div>
+        <!-- Semana 5 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 5</span>
+          <h3 class="mt-2 font-extrabold text-lg">GUI avançada + integração</h3>
+          <p class="mt-2 text-black/70">Múltiplas janelas, diálogos, validação e conexão com persistência/automação.</p>
+          <p class="mt-2 font-semibold">Entregável: edição/remoção, filtros e exportação via GUI.</p>
+        </div>
+        <!-- Semana 6 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 6</span>
+          <h3 class="mt-2 font-extrabold text-lg">Integração com APIs</h3>
+          <p class="mt-2 text-black/70">Requests + JSON; exibir dados externos na aplicação.</p>
+          <p class="mt-2 font-semibold">Entregável: módulo de API (ex.: clima/motivação) integrado à GUI.</p>
+        </div>
+        <!-- Semana 7 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 7</span>
+          <h3 class="mt-2 font-extrabold text-lg">Testes, logs e boas práticas</h3>
+          <p class="mt-2 text-black/70">unittest/pytest, logging, docstrings e PEP8.</p>
+          <p class="mt-2 font-semibold">Entregável: testes principais + logs de execução.</p>
+        </div>
+        <!-- Semana 8 -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+          <span class="tag">Semana 8</span>
+          <h3 class="mt-2 font-extrabold text-lg">Empacotamento e distribuição</h3>
+          <p class="mt-2 text-black/70">PyInstaller (.exe/.app), README e apresentação.</p>
+          <p class="mt-2 font-semibold">Entregável: executável final + documentação.</p>
+        </div>
+      </div>
+
+      <!-- Bônus -->
+      <div class="mt-10 bg-white rounded-2xl p-6 border-2 border-[var(--main-red)] shadow">
+        <div class="flex items-center gap-3">
+          <span class="tag">BÔNUS (gravado)</span>
+          <h3 class="text-xl font-extrabold">Aplicação Web com Flask</h3>
+        </div>
+        <p class="mt-2 text-black/70">Transforme o mesmo projeto em uma app web: rotas, templates (Jinja2), formulários e conexão com sua lógica/banco.</p>
+        <p class="mt-2 font-semibold">Entregável bônus: gerenciador de tarefas acessível no navegador (criar/listar/concluir/remover).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projeto -->
+  <section id="projeto" class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold">Projeto final: Gerenciador de Tarefas Inteligente</h2>
+        <ul class="mt-4 space-y-2">
+          <li class="check">Interface gráfica amigável (Tkinter/CustomTkinter)</li>
+          <li class="check">Automação de relatórios e e-mails</li>
+          <li class="check">Integração com APIs externas</li>
+          <li class="check">Persistência em arquivo/SQLite</li>
+          <li class="check">Empacotamento em executável</li>
+          <li class="check">Versão web bônus com Flask</li>
+        </ul>
+      </div>
+      <div class="bg-[var(--main-blue)] text-white rounded-3xl p-8">
+        <p class="text-lg font-semibold">Você sai com um software de verdade, pronto para usar no seu dia a dia ou incluir no portfólio.</p>
+        <p class="mt-3 text-white/80">Material de apoio, exercícios práticos, checklists e modelos incluídos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professora -->
+  <section>
+    <div class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-8 items-start">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Sua professora</h2>
+        <p class="mt-4 text-black/80"><strong>Marcela dos Santos</strong> — Doutoranda em Computação, +14 anos ensinando Python no Brasil e no Canadá. Minha missão é te tirar do básico e te levar à criação de <strong>aplicações reais</strong>, com didática simples, exemplos práticos e feedback direto.</p>
+        <div class="mt-4 grid md:grid-cols-2 gap-3">
+          <div class="p-4 bg-white rounded-2xl border border-[var(--main-red)]/40"><span class="check">Aulas ao vivo com gravações</span></div>
+          <div class="p-4 bg-white rounded-2xl border border-[var(--main-red)]/40"><span class="check">Suporte em comunidade</span></div>
+          <div class="p-4 bg-white rounded-2xl border border-[var(--main-red)]/40"><span class="check">Feedback no projeto</span></div>
+          <div class="p-4 bg-white rounded-2xl border border-[var(--main-red)]/40"><span class="check">Certificado de conclusão</span></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 border border-[var(--main-red)]/40 shadow-sm">
+        <h3 class="font-extrabold text-lg">Você sairá sabendo</h3>
+        <ul class="mt-3 space-y-2 text-black/80">
+          <li class="check">Estruturar projetos profissionais</li>
+          <li class="check">Criar GUI moderna</li>
+          <li class="check">Automatizar rotinas</li>
+          <li class="check">Integrar APIs</li>
+          <li class="check">Testar e documentar</li>
+          <li class="check">Empacotar e distribuir</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preços / Investimento -->
+  <section id="preco" class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Investimento</h2>
+      <p class="mt-2 text-black/70">Escolha a melhor forma de pagamento para você. Valores promocionais por tempo limitado.</p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <!-- Curso completo -->
+        <div class="rounded-3xl border-2 border-[var(--main-red)] shadow p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-extrabold">Curso completo (8 semanas + bônus)</h3>
+            <span class="tag">Recomendado</span>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-2xl bg-[var(--main-bg)] border border-[var(--main-red)]/40">
+              <div class="text-sm text-black/60">à vista</div>
+              <div class="text-3xl font-extrabold">$156 <span class="text-base font-bold">CAD</span></div>
+            </div>
+            <div class="p-4 rounded-2xl bg-[var(--main-bg)] border border-[var(--main-red)]/40">
+              <div class="text-sm text-black/60">à vista</div>
+              <div class="text-3xl font-extrabold">R$ 624</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2">
+            <li class="check">8 encontros ao vivo com gravações</li>
+            <li class="check">Bônus gravado: versão web com Flask</li>
+            <li class="check">Comunidade e feedback no código</li>
+            <li class="check">Certificado de conclusão</li>
+          </ul>
+          <button class="btn-primary mt-6" onclick="openGoogleForm()">Quero me inscrever</button>
+        </div>
+
+        <!-- Pacote Básico + Intermediário -->
+        <div class="rounded-3xl border border-[var(--main-red)]/40 shadow p-6">
+          <h3 class="text-xl font-extrabold">Pacote: Básico + Intermediário</h3>
+          <div class="mt-4 grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-2xl bg-[var(--main-bg)] border border-[var(--main-red)]/40">
+              <div class="text-3xl font-extrabold">$273 <span class="text-base font-bold">CAD</span></div>
+            </div>
+            <div class="p-4 rounded-2xl bg-[var(--main-bg)] border border-[var(--main-red)]/40">
+              <div class="text-3xl font-extrabold">R$ 1021</div>
+            </div>
+          </div>
+          <ul class="mt-4 space-y-2">
+            <li class="check">2 cursos completos</li>
+            <li class="check">Acesso às gravações</li>
+            <li class="check">Comunidade e suporte</li>
+          </ul>
+          <button class="btn-outline mt-6" onclick="openGoogleForm()">Quero o pacote</button>
+        </div>
+      </div>
+
+      <p class="mt-6 text-sm text-black/60">*Valores em CAD e BRL. Pagamento por Interac / PIX / Wise. Converse por DM para outras opções.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-extrabold">FAQ</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <details class="bg-white rounded-2xl p-5 border border-[var(--main-red)]/40">
+          <summary class="font-bold cursor-pointer">Preciso ter feito o curso básico?</summary>
+          <p class="mt-2 text-black/70">É o ideal. Você deve conhecer variáveis, condicionais, laços, funções, listas/dicionários e manipulação simples de arquivos.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 border border-[var(--main-red)]/40">
+          <summary class="font-bold cursor-pointer">Este curso aborda análise de dados?</summary>
+          <p class="mt-2 text-black/70">Não. Aqui o foco é aplicações (GUI, automação, APIs e empacotamento). Para dados, considere a trilha de Análise de Dados.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 border border-[var(--main-red)]/40">
+          <summary class="font-bold cursor-pointer">A aula de aplicação web é ao vivo?</summary>
+          <p class="mt-2 text-black/70">É um bônus gravado que você assiste quando quiser e aplica no seu projeto.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 border border-[var(--main-red)]/40">
+          <summary class="font-bold cursor-pointer">Qual sistema operacional posso usar?</summary>
+          <p class="mt-2 text-black/70">Windows, macOS ou Linux. Mostramos como empacotar seu app para uso local.</p>
+        </details>
+        <details class="bg-white rounded-2xl p-5 border border-[var(--main-red)]/40">
+          <summary class="font-bold cursor-pointer">Como tiro dúvidas?</summary>
+          <p class="mt-2 text-black/70">Você terá comunidade de suporte e momentos ao vivo para perguntas.</p>
+        </details>
+
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <button class="btn-primary" onclick="openGoogleForm()">Quero me inscrever</button>
+        <a href="#programa" class="btn-outline">Revisar programa</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (sem linha vermelha) -->
+  <footer class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <div class="font-extrabold text-[var(--main-red)]">Tutoria Python Intermediário</div>
+        <p class="text-sm text-black/60 mt-1">© <span id="year"></span> Marcela dos Santos • Todos os direitos reservados.</p>
+      </div>
+      <div class="md:text-right">
+        <button class="btn-primary" onclick="openGoogleForm()">Pré‑inscrição</button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // TODO: substitua pela sua URL real do Google Form
+    const GOOGLE_FORM_URL = "https://forms.gle/fLC3oPk6VHQAnbo77";
+    function openGoogleForm(){
+
+      window.open(GOOGLE_FORM_URL, '_blank', 'noopener');
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
